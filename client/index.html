@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Design Editor</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      :root {
+        --primary-color: #5c6ac4;
+        --primary-hover: #4754b2;
+        --bg-color: #f4f6f8;
+        --surface-color: #ffffff;
+        --border-color: #dfe3e8;
+        --text-color: #212b36;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        height: 100vh;
+        overflow: hidden;
+      }
+
+      #root {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+      }
+
+      /* Checkerboard Pattern for Canvas Transparency */
+      .checkerboard {
+        background-color: #ffffff;
+        background-image: 
+          linear-gradient(45deg, #e5e5e5 25%, transparent 25%), 
+          linear-gradient(-45deg, #e5e5e5 25%, transparent 25%), 
+          linear-gradient(45deg, transparent 75%, #e5e5e5 75%), 
+          linear-gradient(-45deg, transparent 75%, #e5e5e5 75%);
+        background-size: 20px 20px;
+        background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+        box-shadow: 0 0 20px rgba(0,0,0,0.1);
+      }
+
+      /* Scrollbars */
+      ::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #bcc3ca;
+        border-radius: 4px;
+      }
+
+      /* Range Input Styling */
+      input[type=range] {
+        -webkit-appearance: none; 
+        width: 100%; 
+        background: transparent; 
+      }
+      
+      input[type=range]::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        height: 16px;
+        width: 16px;
+        border-radius: 50%;
+        background: var(--primary-color);
+        cursor: pointer;
+        margin-top: -6px; 
+      }
+
+      input[type=range]::-webkit-slider-runnable-track {
+        width: 100%;
+        height: 4px;
+        cursor: pointer;
+        background: #dfe3e8;
+        border-radius: 2px;
+      }
+
+      /* Icons */
+      .icon {
+        width: 20px;
+        height: 20px;
+        stroke: currentColor;
+        stroke-width: 2;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        fill: none;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-konva": "https://aistudiocdn.com/react-konva@^19.2.1",
+    "use-image": "https://aistudiocdn.com/use-image@^1.1.4",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/"
+  }
+}
+</script>
+</head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
